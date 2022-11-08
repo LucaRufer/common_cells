@@ -12,3 +12,9 @@ formal/fall_through_register
 *.check
 *.vcd
 obj_dir/
+*.log
+*.wlf
+*.vstf
+transcript
+*.ini
+work
