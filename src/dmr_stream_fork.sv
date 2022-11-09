@@ -73,10 +73,8 @@ module dmr_stream_fork #(
             state_d = Latched;
           end
           // if we are not repeating in this cycle, we can direcly output the data
-          if(!repeat_q) begin
-            valid_o = {NUM_OUT{1'b1}};
-            bypass = 1'b1;
-          end
+          valid_o = {NUM_OUT{1'b1}};
+          bypass = 1'b1;
         end
       end
       Latched: begin
@@ -93,6 +91,8 @@ module dmr_stream_fork #(
         end
         // In latched state, data is always valid
         valid_o = {NUM_OUT{1'b1}};
+      end
+      default: begin
       end
     endcase
   end

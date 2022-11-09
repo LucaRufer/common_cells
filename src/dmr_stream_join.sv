@@ -96,6 +96,8 @@ module dmr_stream_join #(
           end
         end
       end
+      default: begin
+      end
     endcase
   end
 
