@@ -30,6 +30,7 @@ sources:
   - src/delta_counter.sv
   - src/dmr_stream_fork.sv
   - src/dmr_stream_join.sv
+  - src/dmr_instr_join_fork.sv
   - src/ecc_pkg.sv
   - src/edge_propagator_tx.sv
   - src/exp_backoff.sv
