@@ -36,6 +36,7 @@ module dmr_instr_join_fork #(
   input  logic clk_i,
   input  logic rst_ni,
   output logic error_o,
+  input  logic error_ext_i,
   // address source
   input  logic  [NUM_IN-1:0] valid_i,
   output logic  [NUM_IN-1:0] ready_o,
@@ -51,8 +52,8 @@ module dmr_instr_join_fork #(
   addr_t addr_q;
   logic valid_q;
 
-  assign addr_o  = error_o ?  addr_q :  addr_i[0];
-  assign valid_o = error_o ? valid_q : valid_i[0];
+  assign addr_o  = (error_o | error_ext_i) ?  addr_q :  addr_i[0];
+  assign valid_o = (error_o | error_ext_i) ? valid_q : valid_i[0];
   assign data_o  = {NUM_IN{data_i}};
   assign ready_o = {NUM_IN{ready_i}};
 
